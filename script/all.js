@@ -8,6 +8,28 @@ $(function() {
         singleItem:true
     });
 
+    $(".local-carousel").owlCarousel({
+        slideSpeed : 300,
+        paginationSpeed : 400,
+        singleItem:true,
+
+        afterMove: function(){
+            console.log("afterMove");
+        },
+
+        beforeMove: function(carousel){
+            var globalCarousel = $(".global-carousel"),
+                globalCarouselData = globalCarousel.data('owlCarousel'),
+                carouselData = carousel.data('owlCarousel'),
+                carouselSlidesCount = carousel.find(".owl-item").length,
+                activeSlideIndex = carousel.find(".active").index() + 1;
+            if (activeSlideIndex == carouselSlidesCount){
+                if (carouselData.dragDirection == "left")
+                    globalCarouselData.next();
+            }
+        }
+    });
+
     /*- Promo Carousel End -*/
 
 

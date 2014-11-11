@@ -45,7 +45,7 @@
                         </td>
                     </tr>
                 </table>
-                <div class="global-carousel">
+                <div class="local-carousel">
                     <div class="slide1">
                     </div>
                     <div class="slide2">
@@ -188,7 +188,7 @@
                                 afterShow: function (a, z) {
                                     map.setOptions({
                                         disableDefaultUI: false
-                                    })
+                                    });
                                     goo.event.trigger(map, 'resize');
                                     map.setCenter(this.content.data('center'));
                                 },
@@ -209,7 +209,7 @@
                                 afterClose: function () {
                                     map.setOptions({
                                         disableDefaultUI: true
-                                    })
+                                    });
                                     this.content.appendTo(this.content.data('parent')).show();
                                     goo.event.trigger(map, 'resize');
                                     map.setCenter(this.content.data('center'));
