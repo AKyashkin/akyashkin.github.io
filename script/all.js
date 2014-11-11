@@ -3,9 +3,32 @@ $(function() {
     /*- Promo Carousel -*/
 
     $(".global-carousel").owlCarousel({
-        slideSpeed : 300,
+        slideSpeed : 450,
         paginationSpeed : 400,
-        singleItem:true
+        singleItem:true,
+
+        afterMove: function(carousel){
+            var globalCarousel = $(".global-carousel").data('owlCarousel'),
+                activeSlideIndex = globalCarousel.currentItem;
+            if (activeSlideIndex == 5){
+                $(".rubric-carousel").owlCarousel({
+                    slideSpeed: 100,
+                    paginationSpeed: 100,
+                    singleItem: true,
+                    autoPlay: 200,
+                    theme: 'rubric-theme',
+                    pagination: false,
+
+                    afterMove: function(carousel){
+                        var carouselSlidesCount = carousel.find(".owl-item").length,
+                            activeSlideIndex = carousel.find(".active").index() + 1;
+                        if (activeSlideIndex == carouselSlidesCount){
+                            carousel.trigger('owl.stop');
+                        }
+                    }
+                });
+            }
+        }
     });
 
     $(".local-carousel").owlCarousel({

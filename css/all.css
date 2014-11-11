@@ -306,8 +306,30 @@ a:visited{
      position: relative;
      width: 85px;
  }
+
 footer{
     margin: 32px 0 0;
+}
+
+.rubric-slide{
+    padding: 0 !important;
+}
+
+.rubric-carousel{
+    height: 100%;
+}
+
+.rubric-theme{
+    width: 100% !important;
+    height: 100%;
+    padding: 0 !important;
+}
+
+.cover-image{
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    height: 100%;
 }
 
 /*  Last slide*/
