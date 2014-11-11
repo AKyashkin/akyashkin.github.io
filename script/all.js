@@ -13,7 +13,7 @@ $(function() {
             if (activeSlideIndex == 5){
                 $(".rubric-carousel").owlCarousel({
                     slideSpeed: 100,
-                    paginationSpeed: 100,
+                    paginationSpeed: 250,
                     singleItem: true,
                     autoPlay: 200,
                     theme: 'rubric-theme',
@@ -62,14 +62,20 @@ $(function() {
         padding   : 30,
         maxWidth  : "85%",
         wrapCSS   : 'desc_popup',
-        closeEffect: 'none'
+        closeEffect: 'fade',
+        closeBtn: false,
+        openSpeed: 'slow',
+        closeSpeed: 'slow'
     });
 
     $('.fancy_full').fancybox({
         padding   : 0,
         margin  : 0,
         wrapCSS   : 'full-screen_popup',
-        closeEffect: 'none',
+        closeEffect: 'fade',
+        closeBtn: false,
+        openSpeed: 'slow',
+        closeSpeed: 'slow',
         autoSize : false,
         helpers : {
             overlay: {
