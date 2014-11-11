@@ -82,13 +82,11 @@ $(function() {
 
 
     $(document).ready(function(){
-        $('.img-overlay').animo( { animation: 'fadeInRightTopBig',duration:3} , function() {
-            $('.logo').animo( { animation: 'fadeIn', duration: 1.6 , keep: true });
-        });
-        $(".carousel-content").on('touchmove  mousedown', function(){
-            $(".img-overlay").animo().stop();
-            $('.logo').css('opacity','1');
-        });
+        setTimeout(function(){
+            $('.img-overlay').animo( { animation: 'fadeOut', duration: 12, keep: true} , function() {});
+            $('.logo').animo({ animation: 'fadeOut', duration: 10 , keep: true });
+            $('.img-begin').animate({left: 0}, 6000);
+        }, 3000)
     });
 
 
