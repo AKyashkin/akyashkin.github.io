@@ -8,7 +8,6 @@ $(function() {
         slideSpeed : 450,
         paginationSpeed : 400,
         singleItem:true,
-        mouseDrag: false,
 
         beforeMove: function(){
             console.log("global");
@@ -42,7 +41,6 @@ $(function() {
         slideSpeed : 300,
         paginationSpeed : 400,
         singleItem:true,
-        mouseDrag: false,
 
         afterMove: function(){
             console.log("afterMove");
@@ -51,8 +49,8 @@ $(function() {
 
         beforeMove: function(carousel){
             console.log("local");
-            var global = $(".global-carousel"),
-                globalCarouselData = globalCarousel.data('owlCarousel'),
+            global = $(".global-carousel");
+            var globalCarouselData = global.data('owlCarousel'),
                 carouselData = carousel.data('owlCarousel'),
                 carouselSlidesCount = carousel.find(".owl-item").length,
                 activeSlideIndex = carousel.find(".active").index() + 1;
