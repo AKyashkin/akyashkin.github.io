@@ -40,6 +40,7 @@ $(function() {
         slideSpeed : 300,
         paginationSpeed : 400,
         singleItem:true,
+        mouseDrag: false,
 
         afterMove: function(){
             console.log("afterMove");
