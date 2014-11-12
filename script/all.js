@@ -1,5 +1,7 @@
 $(function() {
 
+    var global;
+
     /*- Promo Carousel -*/
 
     $(".global-carousel").owlCarousel({
@@ -44,11 +46,12 @@ $(function() {
 
         afterMove: function(){
             console.log("afterMove");
+            global.reinit();
         },
 
         beforeMove: function(carousel){
             console.log("local");
-            var globalCarousel = $(".global-carousel"),
+            var global = $(".global-carousel"),
                 globalCarouselData = globalCarousel.data('owlCarousel'),
                 carouselData = carousel.data('owlCarousel'),
                 carouselSlidesCount = carousel.find(".owl-item").length,
@@ -56,6 +59,9 @@ $(function() {
             if (activeSlideIndex == carouselSlidesCount){
                 if (carouselData.dragDirection == "left")
                     globalCarouselData.next();
+            }
+            else {
+                globalCarouselData.destroy();
             }
         }
     });
