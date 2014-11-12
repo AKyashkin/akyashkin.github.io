@@ -6,6 +6,7 @@ $(function() {
         slideSpeed : 450,
         paginationSpeed : 400,
         singleItem:true,
+        mouseDrag: false,
 
         beforeMove: function(){
             console.log("global");
