@@ -44,22 +44,18 @@ $(function() {
 
         afterMove: function(){
             console.log("afterMove");
-            global.reinit();
         },
 
         beforeMove: function(carousel){
             console.log("local");
-            global = $(".global-carousel");
-            var globalCarouselData = global.data('owlCarousel'),
+            var globalCarousel = $(".global-carousel"),
+                globalCarouselData = globalCarousel.data('owlCarousel'),
                 carouselData = carousel.data('owlCarousel'),
                 carouselSlidesCount = carousel.find(".owl-item").length,
                 activeSlideIndex = carousel.find(".active").index() + 1;
             if (activeSlideIndex == carouselSlidesCount){
                 if (carouselData.dragDirection == "left")
                     globalCarouselData.next();
-            }
-            else {
-                globalCarouselData.destroy();
             }
         }
     });
