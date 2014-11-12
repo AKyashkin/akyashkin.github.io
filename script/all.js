@@ -7,6 +7,10 @@ $(function() {
         paginationSpeed : 400,
         singleItem:true,
 
+        beforeMove: function(){
+            console.log("global");
+        },
+
         afterMove: function(carousel){
             var globalCarousel = $(".global-carousel").data('owlCarousel'),
                 activeSlideIndex = globalCarousel.currentItem;
@@ -41,6 +45,7 @@ $(function() {
         },
 
         beforeMove: function(carousel){
+            console.log("local");
             var globalCarousel = $(".global-carousel"),
                 globalCarouselData = globalCarousel.data('owlCarousel'),
                 carouselData = carousel.data('owlCarousel'),
