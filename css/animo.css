@@ -1168,88 +1168,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     animation-name: fadeInRightBig;
 }
 
-/* Customize animation*/
-@-webkit-keyframes fadeInRightTopBig {
-    0% {
-        opacity: 0;
-        -webkit-transform: translate(-200px, -200px);
-    }
-
-
-
-    100% {
-        opacity: 1;
-        -webkit-transform: translate(0, 0);
-    }
-}
-
-@-moz-keyframes fadeInRightTopBig {
-    0% {
-        opacity: 0;
-        -moz-transform: translate(-200px, -200px);
-    }
-
-
-
-    100% {
-        opacity: 1;
-        -moz-transform: translate(0, 0);
-    }
-}
-
-@-o-keyframes fadeInRightTopBig {
-    0% {
-        opacity: 0;
-        -o-transform: translate(-200px, -200px);
-    }
-
-
-
-    100% {
-        opacity: 1;
-        -o-transform: translate(0, 0);
-    }
-}
-
-@keyframes fadeInRightTopBig {
-    0% {
-        opacity: 0;
-        transform: translate(-200px, -200px);
-    }
-
-
-    100% {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-}
-
-.animated.fadeInRightTopBig {
-    -webkit-animation-name: fadeInRightTopBig;
-    -moz-animation-name: fadeInRightTopBig;
-    -o-animation-name: fadeInRightTopBig;
-    animation-name: fadeInRightTopBig;
-}
-
-/**/
-
 @-webkit-keyframes fadeOut {
-	0% {opacity: 1;}
+	0% {opacity: 1; visibility: visible;}
+	30% {opacity: 1; visibility: visible;}
 	100% {opacity: 0;}
 }
 
 @-moz-keyframes fadeOut {
-	0% {opacity: 1;}
+	0% {opacity: 1; visibility: visible;}
+	30% {opacity: 1; visibility: visible;}
 	100% {opacity: 0;}
 }
 
 @-o-keyframes fadeOut {
-	0% {opacity: 1;}
+	0% {opacity: 1; visibility: visible;}
+	30% {opacity: 1; visibility: visible;}
 	100% {opacity: 0;}
 }
 
 @keyframes fadeOut {
-	0% {opacity: 1;}
+	0% {opacity: 1; visibility: visible;}
+	30% {opacity: 1; visibility: visible;}
 	100% {opacity: 0;}
 }
 
@@ -3533,3 +3472,284 @@ Daniel Raftery <@ThirvingKings>
 }
 
 
+/*  Last page animation*/
+
+
+/*  Last slider */
+
+@-webkit-keyframes scrolling-right-5 {
+    0%{
+        -webkit-transform: translateX(165%);
+    }
+
+    100%{
+        -webkit-transform: translateX(0);
+    }
+}
+@-moz-keyframes scrolling-right-5{
+    0%{
+        -moz-transform: translateX(165%);
+    }
+
+    100%{
+        -moz-transform: translateX(0);
+    }
+
+}
+@keyframes scrolling-right-5 {
+    0%{
+        transform: translateX(165%);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+.animated.scrolling-right-5 {
+    -webkit-animation-name: scrolling-right-5;
+    -moz-animation-name: scrolling-right-5;
+    animation-name: scrolling-right-5;
+}
+
+
+
+
+
+/*  Fourth slider */
+
+@-webkit-keyframes scrolling-right-4 {
+    0%{
+        -webkit-transform: translateX(145%);
+    }
+
+    100%{
+        -webkit-transform: translateX(-20%);
+    }
+}
+@-moz-keyframes scrolling-right-4{
+    0%{
+        -moz-transform: translateX(145%);
+    }
+
+    100%{
+        -moz-transform: translateX(-20%);
+    }
+
+}
+@keyframes scrolling-right-4 {
+    0%{
+        transform: translateX(145%);
+    }
+
+    100%{
+        transform: translateX(-20%);
+    }
+}
+.animated.scrolling-right-4 {
+    -webkit-animation-name: scrolling-right-4;
+    -moz-animation-name: scrolling-right-4;
+     animation-name: scrolling-right-4;
+}
+
+
+
+/*  Third slider */
+
+@-webkit-keyframes scrolling-right-3 {
+    0%{
+        -webkit-transform: translateX(125%);
+    }
+
+    100%{
+        -webkit-transform: translateX(-20%);
+    }
+}
+@-moz-keyframes scrolling-right-3 {
+    0%{
+        -moz-transform: translateX(125%);
+    }
+
+    100%{
+        -moz-transform: translateX(-20%);
+    }
+
+}
+@keyframes scrolling-right-3 {
+    0%{
+        transform: translateX(125%);
+    }
+
+    100%{
+        transform: translateX(-20%);
+    }
+}
+.animated.scrolling-right-3 {
+    -webkit-animation-name: scrolling-right-3;
+    -moz-animation-name: scrolling-right-3;
+      animation-name: scrolling-right-3;
+}
+
+
+
+
+/*  Second slider */
+
+@-webkit-keyframes scrolling-right-2 {
+    0%{
+        -webebkit-transform: translateX(100%);
+        opacity: 1;
+    }
+
+    100%{
+        -webkit-transform: translateX(-20%);
+        opacity: 1;
+    }
+}
+@-moz-keyframes scrolling-right-2 {
+    0%{
+        -moz-transform: translateX(100%);
+        opacity: 1;
+    }
+
+    100%{
+        -moz-transform: translateX(-20%);
+        opacity: 1;
+    }
+
+}
+@keyframes scrolling-right-2 {
+    0%{
+        transform: translateX(100%);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateX(-20%);
+        opacity: 1;
+    }
+}
+.animated.scrolling-right-2 {
+    -webkit-animation-name: scrolling-right-2;
+    -moz-animation-name: scrolling-right-2;
+    animation-name: scrolling-right-2;
+}
+
+
+/*  First slider */
+
+@-webkit-keyframes scrolling-right-1 {
+    0%{
+        -webebkit-transform: translateX(0);
+    }
+
+    100%{
+        -webkit-transform: translateX(-20%);
+    }
+}
+@-moz-keyframes scrolling-right-1{
+    0%{
+        -moz-transform: translateX(0);
+    }
+
+    100%{
+        -moz-transform: translateX(-20%);
+    }
+}
+@keyframes scrolling-right-1{
+    0%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(-20%);
+    }
+}
+.animated.scrolling-right-1 {
+    -webkit-animation-name: scrolling-right-1;
+    -moz-animation-name: scrolling-right-1;
+      animation-name: scrolling-right-1;
+}
+
+
+
+
+
+/*  First page animation*/
+
+@-webkit-keyframes leftPullImg {
+    30%{
+        -webebkit-transform: translateX(150px);
+    }
+
+    100%{
+        -webkit-transform: translateX(0%);
+    }
+}
+@-moz-keyframes leftPullImg {
+    30%{
+        -moz-transform: translateX(150px);
+    }
+
+    100%{
+        -moz-transform: translateX(0);
+    }
+}
+@keyframes leftPullImg  {
+    30%{
+        transform: translateX(150px);
+    }
+    30%{
+        transform: translateX(150px);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+.animated.leftPullImg  {
+    -webkit-animation-name: leftPullImg ;
+    -moz-animation-name: leftPullImg ;
+    animation-name: leftPullImg ;
+}
+
+
+/*  Overlay   */
+
+@-webkit-keyframes leftPullOverlay {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@-moz-keyframes leftPullOverlay{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes leftPullOverlay{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.animated.leftPullOverlay{
+    -webkit-animation-name: leftPullOverlay;
+    -moz-animation-name: leftPullOverlay;
+    animation-name: leftPullOverlay;
+}

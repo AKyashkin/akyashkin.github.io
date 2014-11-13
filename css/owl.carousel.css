@@ -1,3 +1,8 @@
+/* 
+ * 	Core Owl Carousel CSS File
+ *	v1.3.3
+ */
+
 /* clearfix */
 .owl-carousel .owl-wrapper:after {
 	content: ".";
@@ -8,17 +13,15 @@
 	height: 0;
 }
 /* display none until init */
-div.owl-carousel{
-	display: none;
+.owl-carousel{
 	position: relative;
 	width: 100%;
     height: 100%;
 	-ms-touch-action: pan-y;
 }
 .owl-carousel .owl-wrapper{
-	display: none;
-    height: 100%;
 	position: relative;
+    height: 100%;
 	-webkit-transform: translate3d(0px, 0px, 0px);
 }
 .owl-carousel .owl-wrapper-outer{
@@ -26,7 +29,6 @@ div.owl-carousel{
 	position: relative;
 	width: 100%;
     height: 100%;
-    float: left;
 }
 .owl-carousel .owl-wrapper-outer.autoHeight{
 	-webkit-transition: height 500ms ease-in-out;
@@ -35,10 +37,9 @@ div.owl-carousel{
 	-o-transition: height 500ms ease-in-out;
 	transition: height 500ms ease-in-out;
 }
-
+	
 .owl-carousel .owl-item{
 	float: left;
-    position: relative;
     height: 100%;
 }
 .owl-controls .owl-page,
@@ -68,32 +69,5 @@ div.owl-carousel{
   -webkit-transform: translate3d(0,0,0);
   -moz-transform: translate3d(0,0,0);
   -ms-transform: translate3d(0,0,0);
-}
-
-.owl-controls{
-   position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 16px;
-    text-align: center;
-    display: none !important;
-}
-.internal-slider .internal-slider .owl-controls{
-    display: block !important;
-}
-.owl-pagination{
-    margin-top: -6px;
-}
-
-.owl-pagination .owl-page{
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: url("../images/bg/all.png") no-repeat 0 -525px transparent;
-    vertical-align: middle;
-    margin: 0 3.5px 0;
-}
-.owl-pagination .owl-page.active{
-    background-position: 0 -467px;
 }
 
