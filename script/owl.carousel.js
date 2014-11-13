@@ -1,5 +1,5 @@
 /*
- *  jQuery OwlCarousel v1.3.3
+ *  jQuery OwlCarousel v1.4.2
  *
  *  Copyright (c) 2013 Bartosz Wojciechowski
  *  http://www.owlgraphic.com/owlcarousel/
@@ -11,9 +11,6 @@
 /*JS Lint helpers: */
 /*global dragMove: false, dragEnd: false, $, jQuery, alert, window, document */
 /*jslint nomen: true, continue:true */
-
-
-
 if (typeof Object.create !== "function") {
     Object.create = function (obj) {
         function F() {}
@@ -22,8 +19,7 @@ if (typeof Object.create !== "function") {
     };
 }
 (function ($, window, document) {
-
-
+    
     var Carousel = {
         init : function (options, el) {
             var base = this;
@@ -33,7 +29,6 @@ if (typeof Object.create !== "function") {
 
             base.userOptions = options;
             base.loadContent();
-
         },
 
         loadContent : function () {
@@ -69,8 +64,8 @@ if (typeof Object.create !== "function") {
         logIn : function () {
             var base = this;
 
-            base.$elem.data("owl-originalStyles", base.$elem.attr("style"));
-            base.$elem.data("owl-originalClasses", base.$elem.attr("class"));
+            base.$elem.data("owl-originalStyles", base.$elem.attr("style"))
+                .data("owl-originalClasses", base.$elem.attr("class"));
 
             base.$elem.css({opacity: 0});
             base.orignalItems = base.options.items;
@@ -116,8 +111,6 @@ if (typeof Object.create !== "function") {
                 base.options.autoPlay = 5000;
             }
             base.play();
-
-            base.$elem.find(".owl-wrapper").css("display", "block");
 
             if (!base.$elem.is(":visible")) {
                 base.watchVisibility();
@@ -168,8 +161,6 @@ if (typeof Object.create !== "function") {
             window.setTimeout(function () {
                 base.updateVars();
             }, 0);
-
-
         },
 
         watchVisibility : function () {
@@ -235,7 +226,9 @@ if (typeof Object.create !== "function") {
             if (width > (base.options.itemsDesktop[0] || base.orignalItems)) {
                 base.options.items = base.orignalItems;
             }
-            if (base.options.itemsCustom !== false) {
+            if (base.options.autoFillItems && base.$owlItems.length) {
+                base.options.items = Math.ceil(width / jQuery(base.$owlItems[0].firstChild).outerWidth(true));
+            } else if (base.options.itemsCustom !== false) {
                 //Reorder array by screen size
                 base.options.itemsCustom.sort(function (a, b) {return a[0] - b[0]; });
 
@@ -274,53 +267,29 @@ if (typeof Object.create !== "function") {
             }
         },
 
-
-
         response : function () {
-
-
             var base = this,
                 smallDelay,
-                lastWindowWidth,
-                $activeImg = $('.slide img'),
-                $activeItem = $('.owl-pagination'),
-                $activeItemHeight = $activeItem.height() / 2,
-                $activeItem2 = $('.slide__content'),
-                $activeItemHeight2 = $activeItem2.height() / 2;
-
-
-
-
-
-            $(window).load(function() {
-               /* $activeItem.css('margin-top' , $activeImg.height() / 2 - $activeItemHeight);*/
-                $activeItem2.css('margin-top' , $activeImg.height() / 2 - $activeItemHeight2);
-            });
+                lastWindowWidth;
 
             if (base.options.responsive !== true) {
                 return false;
             }
-
             lastWindowWidth = $(window).width();
+
             base.resizer = function () {
-                var $currentItemHeight = $activeItem.height() / 2,
-                    $currentItemHeight2 = $activeItem2.height() / 2;
                 if ($(window).width() !== lastWindowWidth) {
                     if (base.options.autoPlay !== false) {
                         window.clearInterval(base.autoPlayInterval);
                     }
                     window.clearTimeout(smallDelay);
-                    window.setTimeout(function () {
+                    smallDelay = window.setTimeout(function () {
                         lastWindowWidth = $(window).width();
                         base.updateVars();
-                        $activeItem.css('margin-top' , $activeImg.height() / 2 - $currentItemHeight);
-                        $activeItem2.css('margin-top' , $activeImg.height() / 2 - $currentItemHeight2);
                     }, base.options.responsiveRefreshRate);
                 }
             };
             $(window).resize(base.resizer);
-
-
         },
 
         updatePosition : function () {
@@ -825,10 +794,10 @@ if (typeof Object.create !== "function") {
                 isTouch;
 
             tempElem.style.cssText = "  -moz-transform:" + translate3D +
-                                  "; -ms-transform:"     + translate3D +
-                                  "; -o-transform:"      + translate3D +
-                                  "; -webkit-transform:" + translate3D +
-                                  "; transform:"         + translate3D;
+                "; -ms-transform:"     + translate3D +
+                "; -o-transform:"      + translate3D +
+                "; -webkit-transform:" + translate3D +
+                "; transform:"         + translate3D;
             regex = /translate3d\(0px, 0px, 0px\)/g;
             asSupport = tempElem.style.cssText.match(regex);
             support3d = (asSupport !== null && asSupport.length === 1);
@@ -884,7 +853,7 @@ if (typeof Object.create !== "function") {
             var base = this;
             base.$elem.on("dragstart.owl", function (event) { event.preventDefault(); });
             base.$elem.on("mousedown.disableTextSelect", function (e) {
-                return $(e.target).is('input, textarea, select, option');
+                return $(e.target).is('input, textarea, select, option, object, embed');
             });
         },
 
@@ -985,11 +954,15 @@ if (typeof Object.create !== "function") {
             function dragMove(event) {
                 var ev = event.originalEvent || event || window.event,
                     minSwipe,
-                    maxSwipe;
+                    maxSwipe,
+                    minValue,
+                    maxValue;
 
                 base.newPosX = getTouches(ev).x - locals.offsetX;
                 base.newPosY = getTouches(ev).y - locals.offsetY;
                 base.newRelativeX = base.newPosX - locals.relativePos;
+
+    
 
                 if (typeof base.options.startDragging === "function" && locals.dragging !== true && base.newRelativeX !== 0) {
                     locals.dragging = true;
@@ -1016,13 +989,16 @@ if (typeof Object.create !== "function") {
                 maxSwipe = function () {
                     return base.maximumPixels + base.newRelativeX / 5;
                 };
-
-                base.newPosX = Math.max(Math.min(base.newPosX, minSwipe()), maxSwipe());
+                minValue = base.rtl ? base.positionsInArray[base.maximumItem] : base.positionsInArray[0];
+                maxValue = base.rtl ? base.positionsInArray[0] : base.positionsInArray[base.maximumItem];
+                base.newPosX = Math.max(Math.min(base.newPosX, minValue ), maxValue );
                 if (base.browser.support3d === true) {
                     base.transition3d(base.newPosX);
                 } else {
                     base.css2move(base.newPosX);
                 }
+
+
             }
 
             function dragEnd(event) {
@@ -1055,17 +1031,27 @@ if (typeof Object.create !== "function") {
                             ev.preventDefault();
                             $(ev.target).off("click.disable");
                         });
-                        handlers = $._data(ev.target, "events").click;
-                        owlStopEvent = handlers.pop();
-                        handlers.splice(0, 0, owlStopEvent);
-
+                        if ($._data(ev.target, "events")) {
+                            handlers = $._data(ev.target, "events").click;
+                            owlStopEvent = handlers.pop();
+                            handlers.splice(0, 0, owlStopEvent);
+                        }
                     }
                 }
                 swapEvents("off");
             }
-            base.$elem.on(base.ev_types.start, ".owl-wrapper", dragStart);
-        },
 
+            base.$elem.on(base.ev_types.start, ".owl-wrapper", dragStart);
+
+            base.disableDrag = function () {
+                base.$elem.off(base.ev_types.start, ".owl-wrapper", dragStart);
+            };
+
+            base.enableDrag = function () {
+                base.$elem.off(base.ev_types.start, ".owl-wrapper", dragStart)
+                    .on(base.ev_types.start, ".owl-wrapper", dragStart);
+            };
+        },
         getNewPosition : function () {
             var base = this,
                 newPosition = base.closestItem();
@@ -1104,9 +1090,11 @@ if (typeof Object.create !== "function") {
                 }
             });
             return base.currentItem;
+
         },
 
         moveDirection : function () {
+
             var base = this,
                 direction;
             if (base.newRelativeX < 0) {
@@ -1228,7 +1216,7 @@ if (typeof Object.create !== "function") {
                 iterations += 1;
                 if (base.completeImg($lazyImg.get(0)) || isBackgroundImg === true) {
                     showImage();
-                } else if (iterations <= 100) {//if image loads in less than 10 seconds 
+                } else if (iterations <= 100) {//if image loads in less than 10 seconds
                     window.setTimeout(checkLazyImage, 100);
                 } else {
                     showImage();
@@ -1257,7 +1245,7 @@ if (typeof Object.create !== "function") {
                 iterations += 1;
                 if (base.completeImg($currentimg.get(0))) {
                     addHeight();
-                } else if (iterations <= 100) { //if image loads in less than 10 seconds 
+                } else if (iterations <= 100) { //if image loads in less than 10 seconds
                     window.setTimeout(checkImage, 100);
                 } else {
                     base.wrapperOuter.css("height", ""); //Else remove height attribute
@@ -1322,13 +1310,13 @@ if (typeof Object.create !== "function") {
 
             base.isTransition = true;
 
-            base.$owlWrapper
+            /*base.$owlWrapper
                 .addClass('owl-origin')
                 .css({
                     "-webkit-transform-origin" : origin + "px",
                     "-moz-perspective-origin" : origin + "px",
                     "perspective-origin" : origin + "px"
-                });
+                });*/
             function transStyles(prevPos) {
                 return {
                     "position" : "relative",
@@ -1467,6 +1455,9 @@ if (typeof Object.create !== "function") {
         }
 
     };
+    var idol = function(){
+        alert('12')
+    }
 
     $.fn.owlCarousel = function (options) {
         return this.each(function () {
@@ -1490,6 +1481,7 @@ if (typeof Object.create !== "function") {
         itemsTabletSmall : false,
         itemsMobile : [479, 1],
         singleItem : false,
+        autoFillItems: false,
         itemsScaleUp : false,
 
         slideSpeed : 200,
@@ -1511,7 +1503,7 @@ if (typeof Object.create !== "function") {
         responsiveRefreshRate : 200,
         responsiveBaseWidth : window,
 
-        baseClass : "internal-slider",
+        baseClass : "owl-carousel",
         theme : "owl-theme",
 
         lazyLoad : false,
@@ -1523,7 +1515,7 @@ if (typeof Object.create !== "function") {
         jsonPath : false,
         jsonSuccess : false,
 
-        dragBeforeAnimFinish : false,
+        dragBeforeAnimFinish : true,
         mouseDrag : true,
         touchDrag : true,
 
