@@ -7,7 +7,7 @@
 
     <title>Предисловие</title>
     <link rel="shortcut icon" href="favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/jquery.fancybox.css">
@@ -18,13 +18,17 @@
 <body>
 
     <div class="owl-carousel global-carousel" >
-        <div class="item" id="test">
+        <div class="item">
             <div class="carousel-content foreword-begin_slide">
                 <img src="images/src/foreword_kremlin.jpg" alt=""/>
-                <div class="img-overlay"> </div>
+                <div class="img-overlay_wrap">
+                    <div class="img-overlay"> </div>
+                </div>
+
                 <h1 class="logo">Предисловие</h1>
                 <audio id="firstly-player">
-                    <source src="media/вступление.mp3" type="audio/mp3">
+                    <source src="media/vstuplenie.mp3" type="audio/mp3">
+                    <source src="media/vstuplenie.wav" type="audio/wav">
                 </audio>
             </div>
         </div>
@@ -157,7 +161,8 @@
         </div>
     </div>
     <audio id="desc-player">
-        <source src="media/московия.mp3" type="audio/mp3">
+        <source src="media/moscovia.mp3" type="audio/mp3">
+        <source src="media/moscovia.wav" type="audio/wav">
     </audio>
     <div class="hidden">
         <div id="map_canvas" style="height: 100%"></div>

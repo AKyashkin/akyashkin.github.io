@@ -3677,33 +3677,28 @@ Daniel Raftery <@ThirvingKings>
 /*  First page animation*/
 
 @-webkit-keyframes leftPullImg {
-    30%{
-        -webebkit-transform: translateX(150px);
+    15%{
+        -webkit-transform: translateX(0);
     }
-
     100%{
-        -webkit-transform: translateX(0%);
+        -webkit-transform: translateX(-135px);
     }
 }
 @-moz-keyframes leftPullImg {
-    30%{
-        -moz-transform: translateX(150px);
+    15%{
+        -moz-transform: translateX(0);
     }
 
     100%{
-        -moz-transform: translateX(0);
+        -moz-transform: translateX(-135px);
     }
 }
 @keyframes leftPullImg  {
-    30%{
-        transform: translateX(150px);
-    }
-    30%{
-        transform: translateX(150px);
-    }
-
-    100%{
+    15%{
         transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-135px);
     }
 }
 .animated.leftPullImg  {
@@ -3716,40 +3711,75 @@ Daniel Raftery <@ThirvingKings>
 /*  Overlay   */
 
 @-webkit-keyframes leftPullOverlay {
-    0%{
-        opacity: 1;
+    15%{
+        -webkit-transform: translateX(-60px);
     }
-    50%{
-        opacity: 1;
-    }
+
     100%{
-        opacity: 0;
+        -webkit-transform: translateX(-270px);
     }
 }
 @-moz-keyframes leftPullOverlay{
-    0%{
-        opacity: 1;
+    15%{
+        -moz-transform: translateX(-60px);
     }
-    50%{
-        opacity: 1;
-    }
+
     100%{
-        opacity: 0;
+        -moz-transform: translateX(-270px);
     }
 }
 @keyframes leftPullOverlay{
-    0%{
-        opacity: 1;
+
+    15%{
+        transform: translateX(-60px);
     }
-    50%{
-        opacity: 1;
-    }
+
     100%{
-        opacity: 0;
+       transform: translateX(-270px);
     }
 }
 .animated.leftPullOverlay{
     -webkit-animation-name: leftPullOverlay;
     -moz-animation-name: leftPullOverlay;
     animation-name: leftPullOverlay;
+}
+
+
+@-webkit-keyframes leftOpacity {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@-moz-keyframes leftOpacity{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes leftOpacity{
+   30%{
+        opacity: 1;
+   }
+   60%{
+       opacity: 0.3;
+   }
+   100%{
+        opacity: 0;
+   }
+}
+.animated.leftOpacity{
+    -webkit-animation-name: leftOpacity;
+    -moz-animation-name: leftOpacity;
+    animation-name: leftOpacity;
 }

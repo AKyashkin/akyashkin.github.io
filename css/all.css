@@ -179,19 +179,26 @@ a:visited{
         overflow: hidden;
     }
     [class*="foreword-begin"] img{
-        -moz-transform: translateX(150px);
-        -Webkit-transform: translateX(150px);
-        transform: translateX(150px);
         left: 0;
         max-width: inherit;
         min-height: 100%;
         min-width: 100%;
         position: absolute;
     }
+    .img-overlay_wrap{
+        -moz-transform: translateX(-145px);
+        -Webkit-transform: translateX(-145px);
+        transform: translateX(-145px);
+        height: 100%;
+    }
     .img-overlay{
+        -moz-transform: translateX(-60px);
+        -Webkit-transform: translateX(-60px);
+        transform: translateX(-60px);
         left: 0;
         min-height: 100%;
         min-width: 100%;
+        width: 1610px;
         position: absolute;
         background: url("../images/bg/overlay.png") no-repeat 0 0 / cover;
     }

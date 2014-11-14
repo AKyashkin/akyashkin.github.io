@@ -2,12 +2,12 @@ $(function() {
 
     var owlExternal = $(".global-carousel"),
         owlInternal = $(".internal-slider");
-    audio = $('#firstly-player')[0];
+    var audio = document.querySelector('audio#firstly-player');
     audioDesc = $('#desc-player')[0];
     audioStart = function(){
         setTimeout(function(){
-            audio.play();
-            audio.volume = 1;
+         audio.play();
+         audio.volume = 1;
         },250)
     }
     audioDescStart = function(){
@@ -23,7 +23,7 @@ $(function() {
             audio.pause();
             audio.currentTime = 0;
             audioDesc.currentTime = 0;
-        }, 500);
+        }, 300);
 
     }
     owlExternal.owlCarousel({
@@ -70,26 +70,26 @@ $(function() {
         afterInit:function(){
                 $this = this;
                 window.animate = function(){
-                    setTimeout(function(){
-                        $('.foreword-begin_slide img').animo( { animation: 'leftPullImg',duration:5, keep: true }, function(){});
-                        $('.img-overlay').animo( { animation: 'leftPullOverlay',duration:10,timing:"ease",  keep: true });
-                        $('.logo').animo( { animation: 'fadeOut', duration: 6 , keep: true });
-                    });
-                    document.timeout =  setTimeout(function(){
-                        audioStart()
-                    })
+                    $('.foreword-begin_slide img').animo( { animation: 'leftPullImg',duration:5, keep: true });
+                    $('.img-overlay').animo( { animation: 'leftPullOverlay',duration:5, keep: true });
+                    $('.img-overlay_wrap').animo( { animation: 'leftOpacity',duration:9, keep: true });
+                    $('.logo').animo( { animation: 'fadeOut', duration: 6 , keep: true });
+
+                    audioStart();
                 };
             animate();
 
         },
         afterAction:function(){
             if(this.currentItem === 1 && this.playDirection === "next"){
-                clearTimeout(document.timeout)
-                 audioEnd()
+                audioEnd();
+                setTimeout(function(){
+                    $('.img-overlay_wrap').removeClass('leftOpacity animated')
+                    $(".img-overlay").removeClass('leftPullOverlay animated');
+                    $('.logo').removeClass('fadeOut animated');
+                    $('.foreword-begin_slide img').removeClass('leftPullImg animated')
+                }, 400)
 
-                 $(".img-overlay").removeClass('leftPullOverlay animated');
-                 $('.logo').removeClass('fadeOut animated');
-                 $('.foreword-begin_slide img').removeClass('leftPullImg animated')
             }
             if(this.currentItem === 0 && this.playDirection === "prev"){
                 animate();
@@ -103,13 +103,10 @@ $(function() {
          singleItem: true,
          navigation: false,
          startDragging: function(){
-             owlInternal.on("mousedown touchstart", function(event){
-                 event.stopPropagation();
-             })
              if(this.currentItem === 0){
                  if(this.newRelativeX < 0){
                  }else{
-                     owlExternal.trigger("owl.prev")
+                     owlExternal.trigger("owl.prev");
                      animate();
                  }
              }if(this.currentItem === this.maximumItem){
@@ -118,6 +115,12 @@ $(function() {
                  }else{
                  }
              }
+         },
+         afterInit: function(){
+             owlInternal.on("mousedown touchstart", function(event){
+                 event.stopPropagation();
+             })
+
          }
      })
 
