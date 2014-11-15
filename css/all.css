@@ -157,6 +157,9 @@ a:visited{
 
 /*   Primary style*/
 
+global-carousel{
+    display: block;
+}
 .item,
 .carousel-content{
     height: 100%;
@@ -200,10 +203,12 @@ a:visited{
         min-width: 100%;
         width: 1610px;
         position: absolute;
-        background: url("../images/bg/overlay.png") no-repeat 0 0 / cover;
+        background: url("../images/bg/overlay.png") no-repeat 0 0;
+        background-size: cover;
     }
         .logo{
-            background: url("../images/bg/preface-logo@2x.png") no-repeat scroll 0 0 / 194px 55px rgba(0, 0, 0, 0);
+            background: url("../images/bg/preface-logo@2x.png") no-repeat scroll 0 0  rgba(0, 0, 0, 0);
+            background-size: 194px 55px;
             color: #e55a41;
             font: 0px/0 a;
             height: 54px;
@@ -363,47 +368,83 @@ table.end-nav{
 .internal-slider_wrapper{
     padding: 0 0 0 4px;
     border-left: 1px solid #d9c4af;
-    width: 46.6%;
+    width:46.6%;
     height: 100%;
     position: absolute;
     right: 0;
     top: 0;
 }
+.full-width{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+.open_full-width{
+    width: 29px;
+    height: 29px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    background: url("../images/bg/full-screen-arrow.png") no-repeat 0 0 ;
+    background-size: 29px 29px;
+    cursor: pointer;
+}
+.close_full-width{
+    content: "";
+    width: 29px;
+    height: 29px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    background: url("../images/bg/iframe-screen-arrow.png") no-repeat 0 0;
+    background-size:  29px 29px;
+    cursor: pointer;
+}
 .internal-slider{
     height: 100%;
     width: 100%;
     position: relative;
+    display: block;
 }
 .internal-slider.owl-carousel{
     border: 0;
     padding: 0;
 }
-    .internal-slider .slide1{
-        background: url("../images/src/slide1.jpg") no-repeat 0 0 /cover;
+     .slide1{
+        background: url("../images/src/slide1.jpg") no-repeat 0 0 ;
         height: 100%;
     }
-    .internal-slider .slide2{
-        background: url("../images/src/slide2.jpg") no-repeat 0 0 /cover;
+     .slide2{
+        background: url("../images/src/slide2.jpg") no-repeat 0 0 ;
         height: 100%;
     }
-.internal-slider .slide3{
-    background: url("../images/src/slide3.jpg") no-repeat 0 0 /cover;
-    height: 100%;
-}
-.internal-slider .slide4{
-    background: url("../images/src/slide4.jpg") no-repeat 0 0 /cover;
-    height: 100%;
-}
+     .slide3{
+        background: url("../images/src/slide3.jpg") no-repeat 0 0 ;
+        height: 100%;
+    }
+     .slide4{
+        background: url("../images/src/slide4.jpg") no-repeat 0 0 ;
+        height: 100%;
+    }
+     .slide1,.slide2,.slide3,.slide4{
+         background-size: cover;
+     }
         .glb{
             width: 44px;
             height: 44px;
             position: absolute;
             right: 22px;
             top: 22px;
-            background: url("../images/bg/Globe-icon@2x.gif") no-repeat 0 0 / 44px 44px;
+            background: url("../images/bg/Globe-icon@2x.gif") no-repeat 0 0 ;
+            background-size: 44px 44px;
             font: 0px/0 a;
+            z-index: 999;
         }
-    .internal-slider .owl-controls{
+    .internal-slider .owl-controls,
+    .full-width .owl-controls{
         position: absolute;
         bottom: 0;
         height: 66px;
@@ -412,17 +453,21 @@ table.end-nav{
         width: 100%;
         background: url("../images/bg/pagination-bg.png") repeat-x;
     }
-    .internal-slider .owl-pagination {
+    .internal-slider .owl-pagination ,
+    .full-width .owl-pagination {
         text-align: center;
     }
-    .internal-slider .owl-pagination .owl-page{
-        background: url("../images/bg/all@2x.png") no-repeat scroll 6px -362px / 200px 400px rgba(0, 0, 0, 0);
+    .internal-slider .owl-pagination .owl-page,
+    .full-width .owl-pagination .owl-page{
+        background: url("../images/bg/all@2x.png") no-repeat scroll 6px -362px  rgba(0, 0, 0, 0);
+        background-size: 200px 400px;
         display: inline-block;
         height: 9px;
         padding: 10px;
         width: 9px;
     }
-    .internal-slider .owl-pagination .owl-page.active{
+    .internal-slider .owl-pagination .owl-page.active,
+    .full-width .owl-pagination .owl-page.active{
         background-position: 6px -334px;
     }
 /*  Description popup*/
