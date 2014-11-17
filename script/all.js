@@ -4,8 +4,8 @@ $(function() {
         owlInternal = $(".internal-slider"),
         owlFull = $(".full-width");
 
-     var audio = $('#firstly-player')[0];
-    audioDesc = $('#desc-player')[0];
+     var audio = $('#firstly-player')[0],
+     audioDesc = $('#desc-player')[0];
     /*audioStart = function(){
         setTimeout(function(){
          audio.play();
@@ -22,8 +22,7 @@ $(function() {
     audioEnd = function(){
         $('audio').each(function(){$(this).animate({volume:0},500)});
         setTimeout(function(){
-            audio.pause();
-            audio.currentTime = 0;
+            audioDesc.pause();
             audioDesc.currentTime = 0;
         }, 300);
 
@@ -196,14 +195,16 @@ $(function() {
 
     /*- Fancybox popups -*/
 
+
     $('.fancy_desc').fancybox({
         padding    : 30,
         maxWidth   : "85%",
         wrapCSS    : 'desc_popup',
         openSpeed  : 700,
         afterShow : function(){
+
             if($('#desc-2').parent().is('.fancybox-inner')){
-                audioDescStart()
+
             }else{
             }
         },
@@ -225,6 +226,10 @@ $(function() {
         }
     });
 
+
+    $('.fancy_desc[href*="#desc-2"]').on('mousedown touchstart',function(){
+        audioDescStart()
+    })
     /*- Fancybox popups End -*/
 
 
@@ -260,7 +265,7 @@ $(function() {
             $(this).data('lastTouch', now);
         });
     };
-    owlInternal.doubletap(
+    $('.internal-slider .owl-item').doubletap(
             function(event){
             owlFull.fadeIn(500);
         },
@@ -268,7 +273,7 @@ $(function() {
         },
         4000
     );
-    owlFull.doubletap(
+    $('.full-width .owl-item').doubletap(
         function(event){
             owlFull.fadeOut(500);
         },
@@ -278,6 +283,9 @@ $(function() {
     );
 
     /*- Double Click emulate on touch devices END -*/
+
+
+
 
 });
 
