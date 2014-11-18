@@ -906,6 +906,7 @@ if (typeof Object.create !== "function") {
                     $(document).off(base.ev_types.move);
                     $(document).off(base.ev_types.end);
                 }
+
             }
 
             function dragStart(event) {
@@ -948,6 +949,7 @@ if (typeof Object.create !== "function") {
 
                 locals.sliding = false;
                 locals.targetElement = ev.target || ev.srcElement;
+
             }
 
             function dragMove(event) {
@@ -996,7 +998,8 @@ if (typeof Object.create !== "function") {
                 } else {
                     base.css2move(base.newPosX);
                 }
-
+               /* var $el = $('.owl-wrapper').offset().left;
+                console.log($el)*/
 
             }
 
@@ -1038,6 +1041,7 @@ if (typeof Object.create !== "function") {
                     }
                 }
                 swapEvents("off");
+
             }
 
             base.$elem.on(base.ev_types.start, ".owl-wrapper", dragStart);
