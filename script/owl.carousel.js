@@ -19,7 +19,7 @@ if (typeof Object.create !== "function") {
     };
 }
 (function ($, window, document) {
-    
+
     var Carousel = {
         init : function (options, el) {
             var base = this;
@@ -29,6 +29,7 @@ if (typeof Object.create !== "function") {
 
             base.userOptions = options;
             base.loadContent();
+
         },
 
         loadContent : function () {
@@ -59,6 +60,7 @@ if (typeof Object.create !== "function") {
             } else {
                 base.logIn();
             }
+
         },
 
         logIn : function () {
@@ -138,6 +140,7 @@ if (typeof Object.create !== "function") {
             if (typeof base.options.afterAction === "function") {
                 base.options.afterAction.apply(this, [base.$elem]);
             }
+
         },
 
         updateVars : function () {
@@ -711,6 +714,7 @@ if (typeof Object.create !== "function") {
         play : function () {
             var base = this;
             base.apStatus = "play";
+
             if (base.options.autoPlay === false) {
                 return false;
             }
@@ -811,10 +815,12 @@ if (typeof Object.create !== "function") {
 
         moveEvents : function () {
             var base = this;
+
             if (base.options.mouseDrag !== false || base.options.touchDrag !== false) {
                 base.gestures();
                 base.disabledEvents();
             }
+
         },
 
         eventTypes : function () {
@@ -876,9 +882,11 @@ if (typeof Object.create !== "function") {
 
             function getTouches(event) {
                 if (event.touches !== undefined) {
+
                     return {
                         x : event.touches[0].pageX,
                         y : event.touches[0].pageY
+
                     };
                 }
 
@@ -900,6 +908,7 @@ if (typeof Object.create !== "function") {
 
             function swapEvents(type) {
                 if (type === "on") {
+
                     $(document).on(base.ev_types.move, dragMove);
                     $(document).on(base.ev_types.end, dragEnd);
                 } else if (type === "off") {
@@ -963,7 +972,6 @@ if (typeof Object.create !== "function") {
                 base.newPosY = getTouches(ev).y - locals.offsetY;
                 base.newRelativeX = base.newPosX - locals.relativePos;
 
-    
 
                 if (typeof base.options.startDragging === "function" && locals.dragging !== true && base.newRelativeX !== 0) {
                     locals.dragging = true;
@@ -998,12 +1006,18 @@ if (typeof Object.create !== "function") {
                 } else {
                     base.css2move(base.newPosX);
                 }
-               /* var $el = $('.owl-wrapper').offset().left;
-                console.log($el)*/
 
+                /*if(base.currentItem === 0 && base.dragDirection === "right"){
+                    $('.internal-slider_wrapper').css('right',(0-(base.newPosX/2.16775))+'px')
+                }if(base.currentItem === 0 && base.playDirection === "next"){
+                    $('.internal-slider_wrapper').css('right',(0-(base.newPosX/2.16775))+'px')
+                }if(base.currentItem === 1 && base.dragDirection === "left"){
+                    $('.internal-slider_wrapper').css('right',(0-(base.newPosX/2.16775))+'px')
+                }*/
             }
 
             function dragEnd(event) {
+
                 var ev = event.originalEvent || event || window.event,
                     newPosition,
                     handlers,
@@ -1032,6 +1046,7 @@ if (typeof Object.create !== "function") {
                             ev.stopPropagation();
                             ev.preventDefault();
                             $(ev.target).off("click.disable");
+
                         });
                         if ($._data(ev.target, "events")) {
                             handlers = $._data(ev.target, "events").click;
@@ -1042,9 +1057,20 @@ if (typeof Object.create !== "function") {
                 }
                 swapEvents("off");
 
+               /* if(base.currentItem === 1 && base.playDirection === "next"){
+                    $('.internal-slider_wrapper').animate({
+                        right: 472
+                    }, 500)
+                }if(base.currentItem === 0 && base.playDirection === "prev"){
+                    $('.internal-slider_wrapper').animate({
+                        right: 0
+                    })
+                }*/
+
             }
 
             base.$elem.on(base.ev_types.start, ".owl-wrapper", dragStart);
+            base.$elem.on(base.ev_types.start, ".internal-slider", dragStart);
 
             base.disableDrag = function () {
                 base.$elem.off(base.ev_types.start, ".owl-wrapper", dragStart);

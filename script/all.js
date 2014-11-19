@@ -14,12 +14,9 @@ $(function() {
         },250);
     }*/
     audioDescStart = function(){
-        setTimeout(function(){
-            audioDesc.currentTime = 0;
-            audioDesc.play();
             audioDesc.volume = 1;
-        },250)
-    }
+            audioDesc.play();
+    };
     audioEnd = function(){
         $('audio').each(function(){$(this).animate({volume:0},500)});
         setTimeout(function(){
@@ -27,7 +24,7 @@ $(function() {
             audioDesc.currentTime = 0;
         }, 150);
 
-    }
+    };
     owlExternal.owlCarousel({
      slideSpeed : 450,
      navigation: false,
@@ -59,16 +56,11 @@ $(function() {
 
                     $('.anim-item_5 .start-flip').on('mousedown', function(){
                         $('.anim-item_5 .end-nav').animo({ animation: 'fadeOutUp',duration:.4,  keep: true });
+                        $('.lift-wrap').animo({ animation: 'fadeOutCust',duration:.4,  keep: true });
                         $('.lift-left').animo({ animation: 'fadeOutLeftBig',duration:3, timing:"linear", keep: true },function(){});
                         $('.lift-right').animo({ animation: 'fadeOutRightBig',duration:3, timing:"linear", keep: true });
-                        setTimeout(function(){
-                            $('.lift-wrap').css('z-index','0');
-                            $('.anim-item_5 .end-nav').css('z-index','0');
-                        },750)
                     });
                 },350);
-
-
                 /*- Animation end  -*/
 
             }
@@ -125,10 +117,11 @@ $(function() {
                 event.stopPropagation();
             });
             $('.open_full-width').on('mousedown touchstart', function(){
-                owlFull.fadeIn(500);
+                owlFull.parent().fadeIn(500);
                 owlFull.append('<div class="close_full-width"></div>');
                 $('.close_full-width').on('mousedown touchstart', function(){
-                    owlFull.fadeOut(500);
+                    owlFull.parent().fadeOut(500);
+                    this.remove();
                 })
             })
         },
@@ -158,14 +151,14 @@ $(function() {
                     owlExternal.trigger("owl.prev");
                     animate();
                     setTimeout(function(){
-                        owlFull.fadeOut(500)
+                        owlFull.parent().fadeOut(500)
                     },250)
                 }
             }if(this.currentItem === this.maximumItem){
                 if(this.newRelativeX < 0){
                     owlExternal.trigger("owl.next")
                     setTimeout(function(){
-                        owlFull.fadeOut(500)
+                        owlFull.parent().fadeOut(500)
                     },250)
                 }else{
 
@@ -194,6 +187,7 @@ $(function() {
 
 
     owlAnimate.owlCarousel({
+        slideSpeed : 450,
         singleItem: true,
         navigation: false,
         startDragging: function(){
@@ -222,13 +216,6 @@ $(function() {
         maxWidth   : "85%",
         wrapCSS    : 'desc_popup',
         openSpeed  : 700,
-        afterShow : function(){
-
-            if($('#desc-2').parent().is('.fancybox-inner')){
-
-            }else{
-            }
-        },
         afterClose : function(){
                 audioEnd()
         }
@@ -247,10 +234,14 @@ $(function() {
         }
     });
 
-
     $('.fancy_desc[href*="#desc-2"]').on('mousedown touchstart',function(){
-        audioDescStart()
+        if(typeof $.fancybox == 'function') {
+            audioDescStart()
+        } else {
+        }
     });
+
+
     /*- Fancybox popups End -*/
 
 
@@ -288,7 +279,7 @@ $(function() {
     };
     $('.internal-slider .owl-item').doubletap(
             function(event){
-            owlFull.fadeIn(500);
+            owlFull.parent().fadeIn(500);
         },
             function(event){
         },
@@ -296,7 +287,7 @@ $(function() {
     );
     $('.full-width .owl-item').doubletap(
         function(event){
-            owlFull.fadeOut(500);
+            owlFull.parent().fadeOut(500);
         },
         function(event){
         },

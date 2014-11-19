@@ -1198,6 +1198,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	-o-animation-name: fadeOut;
 	animation-name: fadeOut;
 }
+
+
 @-webkit-keyframes fadeOutUp {
 	0% {
 		opacity: 1;
@@ -1206,6 +1208,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		-webkit-transform: translateY(-20px);
 	}
 }
@@ -1217,6 +1221,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		-moz-transform: translateY(-20px);
 	}
 }
@@ -1228,6 +1234,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		-o-transform: translateY(-20px);
 	}
 }
@@ -1239,6 +1247,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		transform: translateY(-20px);
 	}
 }
@@ -1519,6 +1529,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	-o-animation-name: fadeOutDownBig;
 	animation-name: fadeOutDownBig;
 }
+
 @-webkit-keyframes fadeOutLeftBig {
 	0% {
 		opacity: 1;
@@ -1527,6 +1538,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		-webkit-transform: translateX(-2000px);
 	}
 }
@@ -1539,6 +1552,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		-moz-transform: translateX(-2000px);
 	}
 }
@@ -1551,6 +1566,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		-o-transform: translateX(-2000px);
 	}
 }
@@ -1563,6 +1580,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		transform: translateX(-2000px);
 	}
 }
@@ -1573,6 +1592,60 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	-o-animation-name: fadeOutLeftBig;
 	animation-name: fadeOutLeftBig;
 }
+
+
+
+
+@-webkit-keyframes fadeOutCust {
+    0% {
+    }
+
+    100% {
+        visibility: hidden;
+        position: absolute;
+    }
+}
+
+@-moz-keyframes fadeOutCust {
+    0% {
+    }
+
+    100% {
+        visibility: hidden;
+        position: absolute;
+    }
+}
+
+@-o-keyframes fadeOutCust {
+    0% {
+    }
+
+    100% {
+        visibility: hidden;
+        position: absolute;
+    }
+}
+
+@keyframes fadeOutCust {
+    0% {
+    }
+
+    100% {
+        visibility: hidden;
+        position: absolute;
+    }
+}
+
+.animated.fadeOutCust {
+    -webkit-animation-name: fadeOutCust;
+    -moz-animation-name: fadeOutCust;
+    -o-animation-name: fadeOutCust;
+    animation-name: fadeOutCust;
+}
+
+
+
+
 @-webkit-keyframes fadeOutRightBig {
 	0% {
 		opacity: 1;
@@ -1581,6 +1654,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		-webkit-transform: translateX(2000px);
 	}
 }
@@ -1592,6 +1667,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		-moz-transform: translateX(2000px);
 	}
 }
@@ -1603,6 +1680,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		-o-transform: translateX(2000px);
 	}
 }
@@ -1614,6 +1693,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
+        visibility: hidden;
+        position: absolute;
 		transform: translateX(2000px);
 	}
 }
