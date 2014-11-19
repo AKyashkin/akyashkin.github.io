@@ -117,11 +117,11 @@ $(function() {
                 event.stopPropagation();
             });
             $('.open_full-width').on('mousedown touchstart', function(){
-                owlFull.parent().fadeIn(500);
+                owlFull.fadeIn(500);
                 owlFull.append('<div class="close_full-width"></div>');
                 $('.close_full-width').on('mousedown touchstart', function(){
-                    owlFull.parent().fadeOut(500);
-                    this.remove();
+                    owlFull.fadeOut(500);
+                    this.remove()
                 })
             })
         },
@@ -151,14 +151,14 @@ $(function() {
                     owlExternal.trigger("owl.prev");
                     animate();
                     setTimeout(function(){
-                        owlFull.parent().fadeOut(500)
+                        owlFull.fadeOut(500)
                     },250)
                 }
             }if(this.currentItem === this.maximumItem){
                 if(this.newRelativeX < 0){
                     owlExternal.trigger("owl.next")
                     setTimeout(function(){
-                        owlFull.parent().fadeOut(500)
+                        owlFull.fadeOut(500)
                     },250)
                 }else{
 
@@ -279,7 +279,7 @@ $(function() {
     };
     $('.internal-slider .owl-item').doubletap(
             function(event){
-            owlFull.parent().fadeIn(500);
+            owlFull.fadeIn(500);
         },
             function(event){
         },
@@ -287,7 +287,7 @@ $(function() {
     );
     $('.full-width .owl-item').doubletap(
         function(event){
-            owlFull.parent().fadeOut(500);
+            owlFull.fadeOut(500);
         },
         function(event){
         },
