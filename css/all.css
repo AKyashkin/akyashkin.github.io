@@ -373,9 +373,12 @@ table.end-nav{
     position: absolute;
     right: 0;
     top: 0;
-    /*-moz-transform: translateX(472px);
-    -Webkit-transform: translateX(472px);*/
+
 }
+    .right-paralax{
+        -moz-transform: translateX(472px);
+        -Webkit-transform: translateX(472px);
+    }
     .internal-slider{
         height: 100%;
         width: 100%;
