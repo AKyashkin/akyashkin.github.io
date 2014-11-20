@@ -77,7 +77,8 @@
   -ms-transform: translate3d(0,0,0);
 }
 
-.glb{
+.glb,
+.lift-wrap{
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility:    hidden;
     -ms-backface-visibility:     hidden;

@@ -140,7 +140,6 @@ $(function() {
                 owlFull.append('<div class="close_full-width"></div>');
                 $('.close_full-width').on('mousedown touchstart', function(){
                     owlFull.fadeOut(500);
-                    this.remove()
                 })
             })
         },
