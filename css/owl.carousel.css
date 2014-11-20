@@ -68,7 +68,6 @@
 .owl-carousel  .owl-controls,
 .open_full-width,
 .close_full-width,
-.glb,
 .carousel-content:after{
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility:    hidden;
@@ -78,3 +77,8 @@
   -ms-transform: translate3d(0,0,0);
 }
 
+.glb{
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility:    hidden;
+    -ms-backface-visibility:     hidden;
+}
