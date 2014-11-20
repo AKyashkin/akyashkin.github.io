@@ -76,7 +76,26 @@ $(function() {
                     /*audioStart()*/
                 };
             animate();
+            var isMouseDown = false;
 
+             owlExternal.on('mousedown touchstart',function(){
+                isMouseDown = true;
+             });
+             owlExternal.on('mousemove touchmove', function(){
+             var currentPos  = $this.newPosX;
+             if(isMouseDown){
+                 /*console.log($this.newPosX)*/
+                if(currentPos < 0 && currentPos > -1024){
+                    $('.internal-slider_wrapper').css('right',(0-(currentPos/2.16775))+'px');
+                }
+             }
+             });
+             owlExternal.on('mouseup touchend',function(){
+                 $('.internal-slider_wrapper').animate({
+                     "right":"472px"
+                 },600);
+                 isMouseDown = false;
+             });
         },
         afterAction:function(){
             if(this.currentItem === 1 && this.playDirection === "next"){
