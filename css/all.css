@@ -33,8 +33,8 @@ footer, header, hgroup, menu, nav, section {
 html {
     font: 62.5%/1.5 'pancetta_proregular';
     color: #000;
-    -webkit-font-smoothing: antialiased;
     height: 100% !important;
+    position: fixed;
 }
 
 body{
@@ -42,7 +42,6 @@ body{
     background: url("../images/bg/background@2x.jpg") repeat 0 0 / 50px 50px;
     height: 100%;
 }
-
 ol, ul {
     list-style: none;
 }
@@ -376,8 +375,7 @@ table.end-nav{
 
 }
     .right-paralax{
-        -moz-transform: translateX(472px);
-        -Webkit-transform: translateX(472px);
+        right: -477px;
     }
     .internal-slider{
         height: 100%;
@@ -578,4 +576,12 @@ table.end-nav{
     height: 100%;
     left: 0;
     top: 0;
+}
+
+.eff{
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
 }

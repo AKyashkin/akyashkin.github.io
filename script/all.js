@@ -1,5 +1,10 @@
 $(function() {
-
+    $(document).bind(
+        'touchmove',
+        function(e) {
+            e.preventDefault();
+        }
+    );
     var owlExternal = $(".global-carousel"),
         owlInternal = $(".internal-slider"),
         owlFull = $(".full-width"),
@@ -75,27 +80,34 @@ $(function() {
 
                     /*audioStart()*/
                 };
-            animate();
+            /*animate();*/
             var isMouseDown = false;
 
-             /*owlExternal.on('mousedown touchstart',function(){
+             owlExternal.on('mousedown touchstart',function(){
                 isMouseDown = true;
+                 $('.internal-slider_wrapper').removeClass('eff')
              });
              owlExternal.on('mousemove touchmove', function(){
              var currentPos  = $this.newPosX;
              if(isMouseDown){
-                 *//*console.log($this.newPosX)*//*
+                 console.log($this.newPosX)
                 if(currentPos < 0 && currentPos > -1024){
-                    $('.internal-slider_wrapper').css('right',(0-(currentPos/2.16775))+'px');
+                    $('.internal-slider_wrapper').css({
+                        "-webkit-transform":'translate('+currentPos/2.16775+'px,0)',
+                        "-ms-transform":'translate('+currentPos/2.16775+'px,0)',
+                        "transform":'translate('+currentPos/2.16775+'px,0)'
+                    });
                 }
              }
              });
              owlExternal.on('mouseup touchend',function(){
-                 $('.internal-slider_wrapper').animate({
-                     "right":"472px"
-                 },600);
+                 $('.internal-slider_wrapper').addClass('eff').css({
+                     "-webkit-transform":'translate(-477px,0)',
+                     "-ms-transform":'translate(-477px,0)',
+                     "transform":'translate(-477px,0)'
+                 });
                  isMouseDown = false;
-             });*/
+             });
         },
         afterAction:function(){
             if(this.currentItem === 1 && this.playDirection === "next"){
