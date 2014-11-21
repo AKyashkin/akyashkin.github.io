@@ -375,8 +375,12 @@ table.end-nav{
 
 }
     .right-paralax{
-        right: -477px;
+        right: -237px;
     }
+   /* .left-paralax{
+        left: -240px;
+        position: relative;
+    }*/
     .internal-slider{
         height: 100%;
         width: 100%;

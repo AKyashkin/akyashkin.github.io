@@ -85,26 +85,40 @@ $(function() {
 
              owlExternal.on('mousedown touchstart',function(){
                 isMouseDown = true;
-                 $('.internal-slider_wrapper').removeClass('eff')
+                 $('.right-paralax').removeClass('eff')
+                 $('.left-paralax').removeClass('eff')
              });
              owlExternal.on('mousemove touchmove', function(){
              var currentPos  = $this.newPosX;
+             var currentPosl  = $this.newPosX + 1000;
              if(isMouseDown){
-                 console.log($this.newPosX)
                 if(currentPos < 0 && currentPos > -1024){
-                    $('.internal-slider_wrapper').css({
-                        "-webkit-transform":'translate('+currentPos/2.16775+'px,0)',
-                        "-ms-transform":'translate('+currentPos/2.16775+'px,0)',
-                        "transform":'translate('+currentPos/2.16775+'px,0)'
-                    });
-                }
+                     $('.right-paralax').css({
+                         "-webkit-transform":'translate('+currentPos/4.266+'px,0)',
+                         "-ms-transform":'translate('+currentPos/4.266+'px,0)',
+                         "transform":'translate('+currentPos/4.266+'px,0)'
+                     });
+                 }
+                 if(currentPos < 0 && currentPos <= -1024 ){
+                     console.log(currentPos)
+                     $('.left-paralax').css({
+                         "-webkit-transform":'translate('+currentPosl/3+'px,0)',
+                         "-ms-transform":'translate('+currentPosl/3+'px,0)',
+                         "transform":'translate('+currentPosl/3+'px,0)'
+                     });
+                 }
              }
              });
              owlExternal.on('mouseup touchend',function(){
-                 $('.internal-slider_wrapper').addClass('eff').css({
-                     "-webkit-transform":'translate(-477px,0)',
-                     "-ms-transform":'translate(-477px,0)',
-                     "transform":'translate(-477px,0)'
+                 $('.right-paralax').addClass('eff').css({
+                     "-webkit-transform":'translate(-237px,0)',
+                     "-ms-transform":'translate(-237px,0)',
+                     "transform":'translate(-237px,0)'
+                 });
+                 $('.left-paralax').addClass('eff').css({
+                     "-webkit-transform":'translate(0,0)',
+                     "-ms-transform":'translate(0,0)',
+                     "transform":'translate(0,0)'
                  });
                  isMouseDown = false;
              });
