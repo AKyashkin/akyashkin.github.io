@@ -80,48 +80,64 @@ $(function() {
 
                     /*audioStart()*/
                 };
-            /*animate();*/
-            var isMouseDown = false;
+            animate();
 
-             owlExternal.on('mousedown touchstart',function(){
-                isMouseDown = true;
-                 $('.right-paralax').removeClass('eff')
-                 $('.left-paralax').removeClass('eff')
-             });
-             owlExternal.on('mousemove touchmove', function(){
-             var currentPos  = $this.newPosX;
-             var currentPosl  = $this.newPosX + 1000;
-             if(isMouseDown){
-                if(currentPos < 0 && currentPos > -1024){
-                     $('.right-paralax').css({
-                         "-webkit-transform":'translate('+currentPos/4.266+'px,0)',
-                         "-ms-transform":'translate('+currentPos/4.266+'px,0)',
-                         "transform":'translate('+currentPos/4.266+'px,0)'
-                     });
-                 }
-                 if(currentPos < 0 && currentPos <= -1024 ){
-                     console.log(currentPos)
-                     $('.left-paralax').css({
-                         "-webkit-transform":'translate('+currentPosl/3+'px,0)',
-                         "-ms-transform":'translate('+currentPosl/3+'px,0)',
-                         "transform":'translate('+currentPosl/3+'px,0)'
-                     });
-                 }
-             }
-             });
-             owlExternal.on('mouseup touchend',function(){
-                 $('.right-paralax').addClass('eff').css({
-                     "-webkit-transform":'translate(-237px,0)',
-                     "-ms-transform":'translate(-237px,0)',
-                     "transform":'translate(-237px,0)'
-                 });
-                 $('.left-paralax').addClass('eff').css({
-                     "-webkit-transform":'translate(0,0)',
-                     "-ms-transform":'translate(0,0)',
-                     "transform":'translate(0,0)'
-                 });
-                 isMouseDown = false;
-             });
+            /*Paralax*/
+
+                var isMouseDown = false,
+                    RightParallax = $('.right-parallax'),
+                    RightParallaxParent = RightParallax.closest('.owl-item'),
+                    RightParallaxParentPrev = RightParallaxParent.prev('.owl-item'),
+                    CssValueR =  RightParallax.width()/ 4,
+                    ProportionChangesR = $this.itemWidth/CssValueR,
+                    returnPos = function(){RightParallax.css('right','-' +CssValueR+ 'px')};
+                var LeftParallax = $('.left-parallax'),
+                    LeftParallaxParent = LeftParallax.closest('.owl-item'),
+                    LeftParallaxParentNext = LeftParallaxParent.next('.owl-item'),
+                    CssValueL =  LeftParallax.width()/ 6,
+                    ProportionChangesL = $this.itemWidth/CssValueL;
+
+                returnPos();
+                owlExternal.on('mousedown touchstart',function(){
+                    isMouseDown = true;
+                    RightParallax.removeClass('eff');
+                    LeftParallax.removeClass('eff');
+                });
+                owlExternal.on('mousemove touchmove', function(){
+                    var  currentPosR  =  RightParallaxParentPrev.offset().left,
+                         currentPosL  =  LeftParallaxParent.offset().left;
+                    if(isMouseDown){
+                        if(RightParallaxParent.hasClass('active') && currentPosR > -$this.itemWidth || RightParallaxParentPrev.hasClass('active') && currentPosR < 0){
+                            RightParallax.css({
+                                 "-webkit-transform":'translate('+currentPosR/ProportionChangesR+'px,0)',
+                                 "-ms-transform":'translate('+currentPosR/ProportionChangesR+'px,0)',
+                                 "transform":'translate('+currentPosR/ProportionChangesR+'px,0)'
+                            });
+                        }
+                    if(LeftParallaxParent.hasClass('active') && currentPosL < 0 || LeftParallaxParentNext.hasClass('active') && currentPosL > -$this.itemWidth){
+                        LeftParallax.css({
+                            "-webkit-transform":'translate('+currentPosL/ProportionChangesL+'px,0)',
+                            "-ms-transform":'translate('+currentPosL/ProportionChangesL+'px,0)',
+                            "transform":'translate('+currentPosL/ProportionChangesL+'px,0)'
+                            });
+                        }
+                    }
+                });
+                owlExternal.on('mouseup touchend',function(){
+                    RightParallax.addClass('eff').css({
+                        "-webkit-transform":'translate(-'+CssValueR+'px,0)',
+                        "-ms-transform":'translate(-'+CssValueR+'px,0)',
+                        "transform":'translate(-'+CssValueR+'px,0)'
+                    });
+                    LeftParallax.addClass('eff').css({
+                        "-webkit-transform":'translate(0px,0)',
+                        "-ms-transform":'translate(0px,0)',
+                        "transform":'translate(0px,0)'
+                    });
+                    isMouseDown = false;
+                });
+
+            /*Paralax End*/
         },
         afterAction:function(){
             if(this.currentItem === 1 && this.playDirection === "next"){
