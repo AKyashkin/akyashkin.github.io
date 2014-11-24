@@ -68,18 +68,13 @@
 .owl-carousel  .owl-controls,
 .open_full-width,
 .close_full-width,
-.carousel-content:after{
+.carousel-content:after,
+.lift-wrap,
+.glb{
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility:    hidden;
     -ms-backface-visibility:     hidden;
   -webkit-transform: translate3d(0,0,0);
   -moz-transform: translate3d(0,0,0);
   -ms-transform: translate3d(0,0,0);
-}
-
-.glb,
-.lift-wrap{
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility:    hidden;
-    -ms-backface-visibility:     hidden;
 }

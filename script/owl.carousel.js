@@ -1006,7 +1006,6 @@ if (typeof Object.create !== "function") {
                     base.css2move(base.newPosX);
                 }
 
-
             }
 
             function dragEnd(event) {

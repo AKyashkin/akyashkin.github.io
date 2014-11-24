@@ -34,7 +34,6 @@ html {
     font: 62.5%/1.5 'pancetta_proregular';
     color: #000;
     height: 100% !important;
-    position: fixed;
 }
 
 body{
@@ -194,9 +193,9 @@ global-carousel{
         height: 100%;
     }
     .img-overlay{
-        -moz-transform: translateX(-60px);
+        /*-moz-transform: translateX(-60px);
         -Webkit-transform: translateX(-60px);
-        transform: translateX(-60px);
+        transform: translateX(-60px);*/
         left: 0;
         min-height: 100%;
         min-width: 100%;
@@ -367,20 +366,12 @@ table.end-nav{
 .internal-slider_wrapper{
     padding: 0 0 0 4px;
     border-left: 1px solid #d9c4af;
-    width:46.6%;
+    width:473px !important;
     height: 100%;
     position: absolute;
     right: 0;
     top: 0;
-
 }
-    /*.right-paralax{
-        right: -115px;
-    }*/
-   /* .left-paralax{
-        left: -240px;
-        position: relative;
-    }*/
     .internal-slider{
         height: 100%;
         width: 100%;
@@ -441,16 +432,20 @@ table.end-nav{
                     .full-width .owl-pagination .owl-page.active{
                         background-position: 6px -334px;
                     }
-.glb{
-    width: 44px;
+.over{
+    background: url("../images/bg/Globe-icon@2x.gif") no-repeat scroll right 0 / 44px 44px rgba(0, 0, 0, 0);
     height: 44px;
     position: absolute;
     right: 22px;
     top: 22px;
-    background: url("../images/bg/Globe-icon@2x.gif") no-repeat 0 0 ;
-    background-size: 44px 44px;
+    width: 100%;
+}
+.glb{
+    width: 44px;
+    height: 44px;
+    float: right;
     font: 0px/0 a;
-    z-index: 999;
+    z-index: 9999;
 }
 .full-width{
     width: 100%;

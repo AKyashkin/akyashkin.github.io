@@ -82,13 +82,14 @@ $(function() {
                 };
             animate();
 
+
             /*Paralax*/
 
                 var isMouseDown = false,
                     RightParallax = $('.right-parallax'),
                     RightParallaxParent = RightParallax.closest('.owl-item'),
                     RightParallaxParentPrev = RightParallaxParent.prev('.owl-item'),
-                    CssValueR =  RightParallax.width()/ 4,
+                    CssValueR =  RightParallax.width()/4,
                     ProportionChangesR = $this.itemWidth/CssValueR,
                     returnPos = function(){RightParallax.css('right','-' +CssValueR+ 'px')};
                 var LeftParallax = $('.left-parallax'),
@@ -96,7 +97,6 @@ $(function() {
                     LeftParallaxParentNext = LeftParallaxParent.next('.owl-item'),
                     CssValueL =  LeftParallax.width()/ 6,
                     ProportionChangesL = $this.itemWidth/CssValueL;
-
                 returnPos();
                 owlExternal.on('mousedown touchstart',function(){
                     isMouseDown = true;
@@ -114,11 +114,11 @@ $(function() {
                                  "transform":'translate('+currentPosR/ProportionChangesR+'px,0)'
                             });
                         }
-                    if(LeftParallaxParent.hasClass('active') && currentPosL < 0 || LeftParallaxParentNext.hasClass('active') && currentPosL > -$this.itemWidth){
-                        LeftParallax.css({
-                            "-webkit-transform":'translate('+currentPosL/ProportionChangesL+'px,0)',
-                            "-ms-transform":'translate('+currentPosL/ProportionChangesL+'px,0)',
-                            "transform":'translate('+currentPosL/ProportionChangesL+'px,0)'
+                        if(LeftParallaxParent.hasClass('active') && currentPosL < 0 || LeftParallaxParentNext.hasClass('active') && currentPosL > -$this.itemWidth){
+                            LeftParallax.css({
+                                "-webkit-transform":'translate('+currentPosL/ProportionChangesL+'px,0)',
+                                "-ms-transform":'translate('+currentPosL/ProportionChangesL+'px,0)',
+                                "transform":'translate('+currentPosL/ProportionChangesL+'px,0)'
                             });
                         }
                     }
@@ -216,7 +216,7 @@ $(function() {
                 }
             }if(this.currentItem === this.maximumItem){
                 if(this.newRelativeX < 0){
-                    owlExternal.trigger("owl.next")
+                    owlExternal.trigger("owl.next");
                     setTimeout(function(){
                         owlFull.fadeOut(500)
                     },250)
@@ -276,6 +276,7 @@ $(function() {
         maxWidth   : "85%",
         wrapCSS    : 'desc_popup',
         openSpeed  : 700,
+        openEffect : 'none',
         afterClose : function(){
                 audioEnd()
         }
@@ -356,7 +357,9 @@ $(function() {
 
     /*- Double Click emulate on touch devices END -*/
 
-
+    $('.foreword-begin_slide img').load(function() {
+        console.log('evrica')
+    });
 
 
 });
