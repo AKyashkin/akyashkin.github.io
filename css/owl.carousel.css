@@ -48,7 +48,8 @@
 .owl-controls .owl-buttons div{
 	cursor: pointer;
 }
-.owl-controls {
+.owl-controls,
+.overlap{
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
@@ -57,20 +58,16 @@
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* mouse grab icon */
-/*.grabbing {
-    cursor:url(grabbing.png) 8 8, move;
-}*/
-
 /* fix */
 .owl-carousel  .owl-wrapper,
 .owl-carousel  .owl-item,
 .owl-carousel  .owl-controls,
-.open_full-width,
-.close_full-width,
+.full-carousel_control,
 .carousel-content:after,
-.lift-wrap,
-.glb{
+.front-slide,
+.animate_break,
+.sphere,
+.twin{
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility:    hidden;
     -ms-backface-visibility:     hidden;

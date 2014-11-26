@@ -1253,7 +1253,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	}
 }
 
-.animated.fadeOutUp {
+.fadeOutUp {
 	-webkit-animation-name: fadeOutUp;
 	-moz-animation-name: fadeOutUp;
 	-o-animation-name: fadeOutUp;
@@ -1586,7 +1586,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	}
 }
 
-.animated.fadeOutLeftBig {
+.fadeOutLeftBig {
 	-webkit-animation-name: fadeOutLeftBig;
 	-moz-animation-name: fadeOutLeftBig;
 	-o-animation-name: fadeOutLeftBig;
@@ -1596,7 +1596,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 
-@-webkit-keyframes fadeOutCust {
+@-webkit-keyframes visibilityOut {
     0% {
     }
 
@@ -1606,7 +1606,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
 }
 
-@-moz-keyframes fadeOutCust {
+@-moz-keyframes visibilityOut {
     0% {
     }
 
@@ -1616,7 +1616,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
 }
 
-@-o-keyframes fadeOutCust {
+@-o-keyframes visibilityOut {
     0% {
     }
 
@@ -1626,7 +1626,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
 }
 
-@keyframes fadeOutCust {
+@keyframes visibilityOut {
     0% {
     }
 
@@ -1636,11 +1636,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
 }
 
-.animated.fadeOutCust {
-    -webkit-animation-name: fadeOutCust;
-    -moz-animation-name: fadeOutCust;
-    -o-animation-name: fadeOutCust;
-    animation-name: fadeOutCust;
+.visibilityOut {
+    -webkit-animation-name: visibilityOut;
+    -moz-animation-name: visibilityOut;
+    -o-animation-name: visibilityOut;
+    animation-name: visibilityOut;
 }
 
 
@@ -1699,7 +1699,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	}
 }
 
-.animated.fadeOutRightBig {
+.fadeOutRightBig {
 	-webkit-animation-name: fadeOutRightBig;
 	-moz-animation-name: fadeOutRightBig;
 	-o-animation-name: fadeOutRightBig;
@@ -3558,38 +3558,38 @@ Daniel Raftery <@ThirvingKings>
 
 /*  Last slider */
 
-@-webkit-keyframes scrolling-right-5 {
+@-webkit-keyframes FadeLeftStep5 {
     0%{
-        -webkit-transform: translateX(165%);
+        -webkit-transform: translateX(65%);
     }
 
     100%{
-        -webkit-transform: translateX(0);
+        -webkit-transform: translateX(-100%);
     }
 }
-@-moz-keyframes scrolling-right-5{
+@-moz-keyframes FadeLeftStep5{
     0%{
-        -moz-transform: translateX(165%);
+        -moz-transform: translateX(65%);
     }
 
     100%{
-        -moz-transform: translateX(0);
+        -moz-transform: translateX(-100%);
     }
 
 }
-@keyframes scrolling-right-5 {
+@keyframes FadeLeftStep5 {
     0%{
-        transform: translateX(165%);
+        transform: translateX(65%);
     }
 
     100%{
-        transform: translateX(0);
+        transform: translateX(-100%);
     }
 }
-.animated.scrolling-right-5 {
-    -webkit-animation-name: scrolling-right-5;
-    -moz-animation-name: scrolling-right-5;
-    animation-name: scrolling-right-5;
+.FadeLeftStep5 {
+    -webkit-animation-name: FadeLeftStep5;
+    -moz-animation-name: FadeLeftStep5;
+    animation-name: FadeLeftStep5;
 }
 
 
@@ -3598,76 +3598,76 @@ Daniel Raftery <@ThirvingKings>
 
 /*  Fourth slider */
 
-@-webkit-keyframes scrolling-right-4 {
+@-webkit-keyframes FadeLeftStep4 {
     0%{
-        -webkit-transform: translateX(145%);
+        -webkit-transform: translateX(45%);
     }
 
     100%{
-        -webkit-transform: translateX(-20%);
+        -webkit-transform: translateX(-120%);
     }
 }
-@-moz-keyframes scrolling-right-4{
+@-moz-keyframes FadeLeftStep4{
     0%{
-        -moz-transform: translateX(145%);
+        -moz-transform: translateX(45%);
     }
 
     100%{
-        -moz-transform: translateX(-20%);
+        -moz-transform: translateX(-120%);
     }
 
 }
-@keyframes scrolling-right-4 {
+@keyframes FadeLeftStep4 {
     0%{
-        transform: translateX(145%);
+        transform: translateX(45%);
     }
 
     100%{
-        transform: translateX(-20%);
+        transform: translateX(-120%);
     }
 }
-.animated.scrolling-right-4 {
-    -webkit-animation-name: scrolling-right-4;
-    -moz-animation-name: scrolling-right-4;
-     animation-name: scrolling-right-4;
+.FadeLeftStep4 {
+    -webkit-animation-name: FadeLeftStep4;
+    -moz-animation-name: FadeLeftStep4;
+     animation-name: FadeLeftStep4;
 }
 
 
 
 /*  Third slider */
 
-@-webkit-keyframes scrolling-right-3 {
+@-webkit-keyframes FadeLeftStep3 {
     0%{
-        -webkit-transform: translateX(125%);
+        -webkit-transform: translateX(25%);
     }
 
     100%{
-        -webkit-transform: translateX(-20%);
+        -webkit-transform: translateX(-120%);
     }
 }
-@-moz-keyframes scrolling-right-3 {
+@-moz-keyframes FadeLeftStep3 {
     0%{
-        -moz-transform: translateX(125%);
+        -moz-transform: translateX(25%);
     }
 
     100%{
-        -moz-transform: translateX(-20%);
+        -moz-transform: translateX(-120%);
     }
 
 }
-@keyframes scrolling-right-3 {
+@keyframes FadeLeftStep3 {
     0%{
-        transform: translateX(125%);
+        transform: translateX(25%);
     }
 
     100%{
-        transform: translateX(-20%);
+        transform: translateX(-120%);
     }
 }
-.animated.scrolling-right-3 {
-    -webkit-animation-name: scrolling-right-3;
-    -moz-animation-name: scrolling-right-3;
-      animation-name: scrolling-right-3;
+.FadeLeftStep3 {
+    -webkit-animation-name: FadeLeftStep3;
+    -moz-animation-name: FadeLeftStep3;
+      animation-name: FadeLeftStep3;
 }
 
 
@@ -3675,50 +3675,50 @@ Daniel Raftery <@ThirvingKings>
 
 /*  Second slider */
 
-@-webkit-keyframes scrolling-right-2 {
+@-webkit-keyframes FadeLeftStep2 {
     0%{
-        -webebkit-transform: translateX(100%);
+        -webebkit-transform: translateX(0%);
         opacity: 1;
     }
 
     100%{
-        -webkit-transform: translateX(-20%);
+        -webkit-transform: translateX(-120%);
         opacity: 1;
     }
 }
-@-moz-keyframes scrolling-right-2 {
+@-moz-keyframes FadeLeftStep2 {
     0%{
-        -moz-transform: translateX(100%);
+        -moz-transform: translateX(0%);
         opacity: 1;
     }
 
     100%{
-        -moz-transform: translateX(-20%);
+        -moz-transform: translateX(-120%);
         opacity: 1;
     }
 
 }
-@keyframes scrolling-right-2 {
+@keyframes FadeLeftStep2 {
     0%{
-        transform: translateX(100%);
+        transform: translateX(0);
         opacity: 1;
     }
 
     100%{
-        transform: translateX(-20%);
+        transform: translateX(-120%);
         opacity: 1;
     }
 }
-.animated.scrolling-right-2 {
-    -webkit-animation-name: scrolling-right-2;
-    -moz-animation-name: scrolling-right-2;
-    animation-name: scrolling-right-2;
+.FadeLeftStep2 {
+    -webkit-animation-name: FadeLeftStep2;
+    -moz-animation-name: FadeLeftStep2;
+    animation-name: FadeLeftStep2;
 }
 
 
 /*  First slider */
 
-@-webkit-keyframes scrolling-right-1 {
+@-webkit-keyframes FadeLeftStep1 {
     0%{
         -webebkit-transform: translateX(0);
     }
@@ -3727,7 +3727,7 @@ Daniel Raftery <@ThirvingKings>
         -webkit-transform: translateX(-20%);
     }
 }
-@-moz-keyframes scrolling-right-1{
+@-moz-keyframes FadeLeftStep1{
     0%{
         -moz-transform: translateX(0);
     }
@@ -3736,7 +3736,7 @@ Daniel Raftery <@ThirvingKings>
         -moz-transform: translateX(-20%);
     }
 }
-@keyframes scrolling-right-1{
+@keyframes FadeLeftStep1{
     0%{
         transform: translateX(0);
     }
@@ -3745,10 +3745,10 @@ Daniel Raftery <@ThirvingKings>
         transform: translateX(-20%);
     }
 }
-.animated.scrolling-right-1 {
-    -webkit-animation-name: scrolling-right-1;
-    -moz-animation-name: scrolling-right-1;
-      animation-name: scrolling-right-1;
+.FadeLeftStep1 {
+    -webkit-animation-name: FadeLeftStep1;
+    -moz-animation-name: FadeLeftStep1;
+      animation-name: FadeLeftStep1;
 }
 
 
@@ -3758,28 +3758,28 @@ Daniel Raftery <@ThirvingKings>
 /*  First page animation*/
 
 @-webkit-keyframes leftPullImg {
-    15%{
-        -webkit-transform: translateX(0);
+    0%{
+        -webkit-transform: translateX(-1px);
     }
     100%{
-        -webkit-transform: translateX(-135px);
+        -webkit-transform: translateX(-136px);
     }
 }
 @-moz-keyframes leftPullImg {
-    15%{
-        -moz-transform: translateX(0);
+    0%{
+        -moz-transform: translateX(-1px);
     }
 
     100%{
-        -moz-transform: translateX(-135px);
+        -moz-transform: translateX(-136px);
     }
 }
 @keyframes leftPullImg  {
-    15%{
-        transform: translateX(0);
+    0%{
+        transform: translateX(-1px);
     }
     100%{
-        transform: translateX(-135px);
+        transform: translateX(-136px);
     }
 }
 .animated.leftPullImg  {
@@ -3792,31 +3792,31 @@ Daniel Raftery <@ThirvingKings>
 /*  Overlay   */
 
 @-webkit-keyframes leftPullOverlay {
-    15%{
-        -webkit-transform: translateX(-60px);
+    0%{
+        -webkit-transform: translateX(-1px);
     }
 
     100%{
-        -webkit-transform: translateX(-270px);
+        -webkit-transform: translateX(-136px);
     }
 }
 @-moz-keyframes leftPullOverlay{
-    15%{
-        -moz-transform: translateX(-60px);
+    0%{
+        -moz-transform: translateX(-1px);
     }
 
     100%{
-        -moz-transform: translateX(-270px);
+        -moz-transform: translateX(-136px);
     }
 }
 @keyframes leftPullOverlay{
 
-    15%{
-        transform: translateX(-60px);
+    0%{
+        transform: translateX(-1px);
     }
 
     100%{
-       transform: translateX(-270px);
+       transform: translateX(-136px);
     }
 }
 .animated.leftPullOverlay{
@@ -3830,7 +3830,7 @@ Daniel Raftery <@ThirvingKings>
     0%{
         opacity: 1;
     }
-    50%{
+    35%{
         opacity: 1;
     }
     100%{
