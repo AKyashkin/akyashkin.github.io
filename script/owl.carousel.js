@@ -179,7 +179,7 @@ if (typeof Object.create !== "function") {
             base.checkVisible = window.setInterval(function () {
                 if (base.$elem.is(":visible")) {
                     base.reload();
-                    base.$elem.animate({opacity: 1}, 200);
+                    base.$elem.css("opacity","1");
                     window.clearInterval(base.checkVisible);
                 }
             }, 500);
@@ -1006,7 +1006,6 @@ if (typeof Object.create !== "function") {
                     base.css2move(base.newPosX);
                 }
 
-
             }
 
             function dragEnd(event) {
@@ -1518,7 +1517,7 @@ if (typeof Object.create !== "function") {
         responsiveBaseWidth : window,
 
         baseClass : "owl-carousel",
-        theme : "owl-theme",
+//        theme : "owl-theme",
 
         lazyLoad : false,
         lazyFollow : true,
