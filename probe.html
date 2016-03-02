@@ -4,10 +4,38 @@
 
 <head>
     <script>
-    window.location = 'imdb://title/tt3569230';
-    setTimeout(function() {
-        window.location = 'itms-apps://itunes.apple.com/us/app/imdb-movies-tv/id342792525'
-    }, 250)
+    var OSName = "Unknown OS";
+    if (/Win/.test(navigator.userAgent)) OSName = "Windows";
+    if (/Windows Phone/.test(navigator.userAgent)) OSName = "Windows Phone";
+    if (/Linux/.test(navigator.userAgent)) OSName = "Linux";
+    if (/Android/.test(navigator.userAgent)) OSName = "Android";
+    if (/Mac/.test(navigator.userAgent)) OSName = "MacOS";
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) OSName = "iOS";
+
+    switch (OSName) {
+        case 'Android' :
+            window.location.replace("imdb://title/tt3569230");
+            setTimeout(function() {
+               window.location = 'http://goo.gl/BqllZI'
+            }, 250)
+            break;
+        case 'iOS' :
+            window.location.replace("imdb://title/tt3569230");
+            setTimeout(function() {
+               window.location = 'itms-apps://itunes.apple.com/us/app/imdb-movies-tv/id342792525'
+            }, 250)
+            break;
+        default :
+            window.location.replace("imdb://title/tt3569230");
+            setTimeout(function() {
+               window.location = 'http://itunes.apple.com/us/app/imdb-movies-tv/id342792525'
+            }, 250)
+            break;
+    }
+    // window.location = 'imdb://title/tt3569230';
+    // setTimeout(function() {
+    //     window.location = 'itms-apps://itunes.apple.com/us/app/imdb-movies-tv/id342792525'
+    // }, 250)
     // window.location.assign("olalala://");
         // window.location.replace("http://m.moscowsecrets.ru/m/A05FoP7d7o");
     </script>
